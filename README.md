@@ -9,8 +9,6 @@
   <img src="https://img.shields.io/github/license/mingledb/pymingledb.svg" alt="License Badge"/>
 </p>
 
-# pymingledb
-
 Python implementation of MingleDB: a lightweight file-based NoSQL engine with schema validation, query operators, auth helpers, and single-file `.mgdb` persistence.
 
 ## Overview
