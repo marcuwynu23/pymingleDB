@@ -1,6 +1,21 @@
+<div align="center">
+  <h1>pymingledb</h1>
+</div>
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/mingledb/pymingledb.svg" alt="Stars Badge"/>
+  <img src="https://img.shields.io/github/forks/mingledb/pymingledb.svg" alt="Forks Badge"/>
+  <img src="https://img.shields.io/github/issues/mingledb/pymingledb.svg" alt="Issues Badge"/>
+  <img src="https://img.shields.io/github/license/mingledb/pymingledb.svg" alt="License Badge"/>
+</p>
+
 # pymingledb
 
-Lightweight file-based NoSQL engine — Python port of [mingleDB](https://github.com/mingledb/mingleDB). Same format as the JavaScript and [gomingleDB](https://github.com/mingledb/gomingleDB) implementations: BSON serialization, zlib compression, optional schema validation, query operators, and basic authentication.
+Python implementation of MingleDB: a lightweight file-based NoSQL engine with schema validation, query operators, auth helpers, and single-file `.mgdb` persistence.
+
+## Overview
+
+`pymingledb` is intended for Python applications that need embedded/local-first storage without running a separate DB service.
 
 ## Install (uv)
 
@@ -14,6 +29,13 @@ Or add to your project:
 ```bash
 uv add pymingledb
 ```
+
+## Features
+
+- User authentication helpers (register/login/logout/session checks)
+- Schema rules (`required`, `type`, `unique`)
+- Query operators (`$gt`, `$gte`, `$lt`, `$lte`, `$eq`, `$ne`, `$in`, `$nin`, `$regex`)
+- Single `.mgdb` database file for all collections
 
 ## Usage
 
@@ -52,15 +74,6 @@ db.logout("admin")
 # Reset (wipe database file and schemas)
 db.reset()
 ```
-
-## Query operators
-
-- `$gt`, `$gte`, `$lt`, `$lte` — numeric comparison
-- `$eq`, `$ne` — equality
-- `$in`, `$nin` — in list / not in list
-- `$regex`, `$options` — regex (e.g. `"i"` for case-insensitive)
-
-You can also pass a compiled `re.Pattern` as a filter value for regex match.
 
 ## Exceptions
 
